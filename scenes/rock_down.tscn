@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://jjpmbmddjmp3"]
+
+[ext_resource type="Texture2D" uid="uid://byylh3wq15sh3" path="res://assets/PNG/rockDown.png" id="1_d6bvr"]
+[ext_resource type="Script" path="res://scripts/rock_base.gd" id="1_d7jwh"]
+
+[node name="RockDown" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_d7jwh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_d6bvr")
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(54, 118)
+polygon = PackedVector2Array(-53, -119, 52, -118, 45, -58, 39, -53, 32, 14, 26, 16, 15, 118, 8, 117, -16, -3, -25, -10)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

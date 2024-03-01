@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbdrru3pjrqtq"]
+
+[ext_resource type="Texture2D" uid="uid://bnmd6ip6ip2ux" path="res://assets/PNG/rock.png" id="1_haarm"]
+[ext_resource type="Script" path="res://scripts/rock_base.gd" id="1_u23df"]
+
+[node name="RockUp" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_u23df")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, -241)
+texture = ExtResource("1_haarm")
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(56, -121)
+polygon = PackedVector2Array(-54, 115, -25, 10, -17, 4, 8, -119, 15, -119, 27, -17, 31, -17, 40, 54, 45, 58, 53, 118)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

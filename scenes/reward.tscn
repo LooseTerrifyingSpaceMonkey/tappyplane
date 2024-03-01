@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://lr61hk6y0dmc"]
+
+[ext_resource type="Texture2D" uid="uid://djmygpjpvf6an" path="res://assets/PNG/starBronze.png" id="1_4eg2u"]
+[ext_resource type="Script" path="res://scripts/reward.gd" id="1_85ti1"]
+
+[node name="Reward" type="Area2D"]
+script = ExtResource("1_85ti1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4eg2u")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-13, 17, -13, 5, -20, -4, -10, -11, 0, -19, 10, -10, 18, -5, 14, 5, 12, 17, 0, 16)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
