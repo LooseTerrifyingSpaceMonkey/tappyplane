@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://5n35ogx2rs6b"]
+
+[ext_resource type="Script" path="res://scripts/base_screen.gd" id="1_1bu0i"]
+[ext_resource type="Texture2D" uid="uid://duefx54kdfao" path="res://assets/PNG/UI/BigLogo.png" id="2_43cwn"]
+[ext_resource type="PackedScene" uid="uid://dey2vlwkhpj4w" path="res://scenes/screen_button.tscn" id="3_0kl2a"]
+[ext_resource type="Texture2D" uid="uid://c3yy55owf3bcp" path="res://assets/PNG/UI/PlayBtn.png" id="3_8lfd4"]
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1bu0i")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="CenterAnchor" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Logo" type="TextureRect" parent="CenterAnchor"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -90.0
+offset_top = -232.0
+offset_right = 85.0
+offset_bottom = -57.0
+grow_horizontal = 2
+texture = ExtResource("2_43cwn")
+expand_mode = 1
+
+[node name="TitlePlay" parent="CenterAnchor" instance=ExtResource("3_0kl2a")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -121.5
+offset_top = -40.0
+offset_right = 121.5
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 0
+texture_normal = ExtResource("3_8lfd4")

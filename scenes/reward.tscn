@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://scripts/reward.gd" id="1_85ti1"]
 
 [node name="Reward" type="Area2D"]
+collision_layer = 4
 script = ExtResource("1_85ti1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -14,4 +15,5 @@ polygon = PackedVector2Array(-13, 17, -13, 5, -20, -4, -10, -11, 0, -19, 10, -10
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
 
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

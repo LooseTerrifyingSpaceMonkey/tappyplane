@@ -1,11 +1,13 @@
 class_name Player
 extends CharacterBody2D
 
+signal game_over_signal
+
 @onready var animation_player = $AnimationPlayer
 
 @export var gravity = 15.0
 @export var max_gravity = 1000
-@export var tap_lift = -350
+@export var tap_lift = -300
 @export var forward_speed = 180
 
 var top_of_screen_y_value = 20
@@ -39,5 +41,7 @@ func _physics_process(delta):
 
 func die():
 	print("Player died")
-	alive = false
-	animation_player.play("death")
+	if alive:
+		alive = false
+		animation_player.play("death")
+		game_over_signal.emit()

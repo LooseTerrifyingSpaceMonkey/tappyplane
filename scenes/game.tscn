@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://crqbkaa1clrg3"]
+[gd_scene load_steps=7 format=3 uid="uid://crqbkaa1clrg3"]
 
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_7ygpi"]
 [ext_resource type="Texture2D" uid="uid://bi5rjk6lil5iv" path="res://assets/PNG/background.png" id="1_p0aws"]
-[ext_resource type="PackedScene" uid="uid://bbdrru3pjrqtq" path="res://scenes/rock_up.tscn" id="3_okves"]
-[ext_resource type="PackedScene" uid="uid://jjpmbmddjmp3" path="res://scenes/rock_down.tscn" id="4_x7ta5"]
-[ext_resource type="PackedScene" uid="uid://dwx36tq4acejy" path="res://scenes/cloud.tscn" id="5_bxwbk"]
-[ext_resource type="PackedScene" uid="uid://lr61hk6y0dmc" path="res://scenes/reward.tscn" id="6_dxywd"]
+[ext_resource type="Texture2D" uid="uid://dqwqcl7jdy7ya" path="res://assets/PNG/groundDirt.png" id="6_ppi3r"]
+[ext_resource type="PackedScene" uid="uid://b5ue1dlnj2imi" path="res://scenes/hud.tscn" id="6_q484i"]
 [ext_resource type="PackedScene" uid="uid://b5j0lp3dkspay" path="res://scenes/level_generator.tscn" id="7_4u61r"]
 [ext_resource type="PackedScene" uid="uid://d6k7oe5haomm" path="res://scenes/generator_area.tscn" id="8_o56dc"]
 
@@ -20,17 +18,9 @@ script = ExtResource("1_7ygpi")
 texture = ExtResource("1_p0aws")
 centered = false
 
-[node name="RockUp" parent="." instance=ExtResource("3_okves")]
-position = Vector2(385, 651)
+[node name="UILayer" type="CanvasLayer" parent="."]
 
-[node name="RockDown" parent="." instance=ExtResource("4_x7ta5")]
-position = Vector2(641, -3)
-
-[node name="Cloud" parent="." instance=ExtResource("5_bxwbk")]
-position = Vector2(508, 142)
-
-[node name="Reward" parent="." instance=ExtResource("6_dxywd")]
-position = Vector2(600, 364)
+[node name="HUD" parent="UILayer" instance=ExtResource("6_q484i")]
 
 [node name="LevelGenerator" parent="." instance=ExtResource("7_4u61r")]
 
@@ -38,3 +28,7 @@ position = Vector2(600, 364)
 position = Vector2(1229, -5)
 collision_layer = 16
 collision_mask = 14
+
+[node name="GroundSprite" type="Sprite2D" parent="."]
+position = Vector2(409, 619)
+texture = ExtResource("6_ppi3r")
